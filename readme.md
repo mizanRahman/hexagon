@@ -1,0 +1,11 @@
+## others
+    - spring boot app executable in production server
+    - spring cloud microservice platform base structure
+        - spring boot service
+        - spring cloud config server
+        - eureka
+        - config client
+        - Zuul Proxy
+        - Hiytrix (fallback)
+        - communication with messaging
+        - zipkin

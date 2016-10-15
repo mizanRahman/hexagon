@@ -31,3 +31,8 @@ http://localhost:8888/reservation-sevice/default
 http://localhost:8888/reservation-service/default
 
 docker run -d -p 5672:5672 -p 15672:15672  --name rabbit rabbitmq
+
+docker run -d  -p 5672:5672 -p 15672:15672 --hostname my-rabbit --name rabbit rabbitmq:3-management
+
+
+need to learn spring amqp rabbit template and spring integration

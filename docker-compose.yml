@@ -1,0 +1,43 @@
+#rabbitmq:
+#  image: rabbitmq:3-management
+#  ports:
+#    - "5672:5672"
+#    - "15672:15672"
+#
+#
+#mongodb:
+#  image: mongo:3.0.4
+#  ports:
+#    - "27017:27017"
+#  command: mongod --smallfiles
+#
+#redis:
+#    image: redis
+#    ports:
+#        - "6379:6379"
+registry:
+  image: java:8
+  working_dir: /app
+  volumes:
+    - ./eureka-service/build/libs:/app
+  command: java -jar /app/eureka-service-0.0.1-SNAPSHOT.jar --server.port=8080
+  ports:
+    - "9002:8080"
+
+reservation-service:
+  image: java:8
+  working_dir: /app
+  volumes:
+    - ./reservation-service/build/libs:/app
+  command: java -jar /app/reservation-service-0.0.1-SNAPSHOT.jar --server.port=8080
+  ports:
+    - "9001:8080"
+
+gateway:
+  image: java:8
+  working_dir: /app
+  volumes:
+    - ./reservation-client/build/libs:/app
+  command: java -jar /app/reservation-client-0.0.1-SNAPSHOT.jar --server.port=8080
+  ports:
+    - "9000:8080"

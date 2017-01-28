@@ -1,0 +1,39 @@
+{
+  "Services": {
+    "gateway": {
+      "Args": [
+        "java", 
+        "-jar", 
+        "/app/reservation-client-0.0.1-SNAPSHOT.jar", 
+        "--server.port=8080"
+      ], 
+      "Image": "java@sha256:2b840b021b8753dd18da3491d362999980e6636b4a3064ff57bf17ea6dbce42f", 
+      "Networks": [], 
+      "Ports": [
+        {
+          "Port": 8080, 
+          "Protocol": "tcp"
+        }
+      ], 
+      "WorkingDir": "/app"
+    }, 
+    "registry": {
+      "Args": [
+        "java", 
+        "-jar", 
+        "/app/eureka-service-0.0.1-SNAPSHOT.jar", 
+        "--server.port=9000"
+      ], 
+      "Image": "java@sha256:2b840b021b8753dd18da3491d362999980e6636b4a3064ff57bf17ea6dbce42f", 
+      "Networks": [], 
+      "Ports": [
+        {
+          "Port": 8080, 
+          "Protocol": "tcp"
+        }
+      ], 
+      "WorkingDir": "/app"
+    }
+  }, 
+  "Version": "0.1"
+}

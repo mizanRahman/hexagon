@@ -1,0 +1,5 @@
+rootProject.name = 'microservice-commons'
+include 'service-consumer'
+include 'logbook'
+include 'commons'
+
